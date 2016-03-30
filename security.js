@@ -28,13 +28,22 @@ pis.prototype = {
       if(fields) {
         //Search fields that are named in the array
         for (var i = fields.length - 1; i >= 0; i--) {
-            console.log(fields[i]);
+            if(this.e[fields[i]]) {
+                if(this.e[fields[i]].value) {
+                    //Do the checking here
+                    console.log(this.e[fields[i]].value);
+                } else {
+                    console.log(fields[i] + " has no value");
+                }
+            } else {
+                console.log("There is no such field as: " + fields[i]);
+            }
         };
       } else {
         //Search all
 
       }
-      console.log(this.e['quantity']);
+      console.log(this.e);
       //this.e.submit();
       return this;
    },
