@@ -34,6 +34,7 @@ pis.prototype = {
                     console.log(this.e[fields[i]].value);
                 } else if(this.e[fields[i]].type == "file") {
                     console.log("FILE TYPE");
+                    this.readImage(this.e[fields[i]]);
 
                 } else {
                     console.log(fields[i] + " has no value");
@@ -51,7 +52,7 @@ pis.prototype = {
       return this;
    },
 
-   image: function(id) {
+   readImage: function(input) {
     if(input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function(e) {
