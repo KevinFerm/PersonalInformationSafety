@@ -29,9 +29,12 @@ pis.prototype = {
         //Search fields that are named in the array
         for (var i = fields.length - 1; i >= 0; i--) {
             if(this.e[fields[i]]) {
-                if(this.e[fields[i]].value) {
+                if(this.e[fields[i]].type == "text" || this.e[fields[i]].type == "hidden" || this.e[fields[i]].type == "password" || this.e[fields[i]].type == "textarea") {
                     //Do the checking here
                     console.log(this.e[fields[i]].value);
+                } else if(this.e[fields[i]].type == "file") {
+                    console.log("FILE TYPE");
+
                 } else {
                     console.log(fields[i] + " has no value");
                 }
@@ -48,10 +51,14 @@ pis.prototype = {
       return this;
    },
 
-   perinfo: function(data, type) {
-    if(type === "image") {
-        return true;
-        //What to do to search for personal information in different types of form fields
+   image: function(id) {
+    if(input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            console.log(e);
+            return e;
+        }
+        reader.readAsDataURL(input.files[0]);
     }
    }
 };
