@@ -29,8 +29,13 @@ pis.prototype = {
         //Search fields that are named in the array
         for (var i = fields.length - 1; i >= 0; i--) {
             if(this.e[fields[i]]) {
-                if(this.e[fields[i]].type == "text" || this.e[fields[i]].type == "hidden" || this.e[fields[i]].type == "password" || this.e[fields[i]].type == "textarea") {
+                if(this.e[fields[i]].type == "text" || this.e[fields[i]].type == "hidden" ||
+                   this.e[fields[i]].type == "password" || this.e[fields[i]].type == "textarea") {
                     //Do the checking here
+                    console.log(this.emailCheck(this.e[fields[i]].value));
+                    if(this.emailCheck(this.e[fields[i]].value)) {
+                        alert("There is an email address contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
+                    }
                     console.log(this.e[fields[i]].value);
                 } else if(this.e[fields[i]].type == "file") {
                     console.log("FILE TYPE");
@@ -61,5 +66,10 @@ pis.prototype = {
         }
         reader.readAsDataURL(input.files[0]);
     }
+   },
+
+   emailCheck: function(input) {
+    var pattern = /^(\w|\-|\_|\.)+\@((\w|\-|\_)+\.)+[a-zA-Z]{2,}$/;
+    return pattern.test(input);
    }
 };
