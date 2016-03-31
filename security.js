@@ -94,5 +94,11 @@ function base64Decode(base64) {
     var data = base64.split(",");
     var imgtype = data[0].match(/:([^}]*);/)[1];
     var decoded = atob(data[1]);
-    console.log(decoded);
+    var buffer = new ArrayBuffer(decoded.length);
+    var view = new Uint8Array(buffer);
+    for (var i = decoded.length - 1; i >= 0; i--) {
+        view[i] = decoded.charCodeAt(i);
+    };
+
+    console.log(view);
 }
