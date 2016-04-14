@@ -36,6 +36,9 @@ pis.prototype = {
                     if(this.emailCheck(this.e[fields[i]].value)) {
                         alert("There is an email address contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
                     }
+                    if(this.coordCheck(this.e[fields[i]].value)) {
+                        alert("There is an email address contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
+                    }
                     if(this.genderCheck(this.e[fields[i]].value)) {
                         alert("There is an email address contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
                     }
@@ -86,7 +89,13 @@ pis.prototype = {
    },
 
    phoneCheck: function(input) {
-    var pattern = /^([+]47)?((38[{8,9}|0])|(34[{7-9}|0])|(36[6|8|0])|(33[{3-9}|0])|(32[{8,9}]))([\d]{7})$/
+    var pattern = /^([+]47)?((38[{8,9}|0])|(34[{7-9}|0])|(36[6|8|0])|(33[{3-9}|0])|(32[{8,9}]))([\d]{7})$/;
+    return pattern.test(input);
+   },
+
+   coordCheck: function(input) {
+    var pattern = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
+    return pattern.test(input);
    }
 };
 
