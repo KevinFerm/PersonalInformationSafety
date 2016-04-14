@@ -32,18 +32,18 @@ pis.prototype = {
                 if(this.e[fields[i]].type == "text" || this.e[fields[i]].type == "hidden" ||
                    this.e[fields[i]].type == "password" || this.e[fields[i]].type == "textarea") {
                     //Do the checking here
-                    console.log(this.emailCheck(this.e[fields[i]].value));
+                    console.log(this.coordCheck(this.e[fields[i]].value));
                     if(this.emailCheck(this.e[fields[i]].value)) {
                         alert("There is an email address contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
                     }
                     if(this.coordCheck(this.e[fields[i]].value)) {
-                        alert("There is an email address contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
+                        alert("There is a coordinate contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
                     }
                     if(this.genderCheck(this.e[fields[i]].value)) {
-                        alert("There is an email address contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
+                        alert("There is a gender contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
                     }
                     if(this.phoneCheck(this.e[fields[i]].value)) {
-                        alert("There is an email address contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
+                        alert("There is a phone number contained in your message, are you sure you want to post this? - " + this.e[fields[i]].value);
                     }
                     console.log(this.e[fields[i]].value);
                 } else if(this.e[fields[i]].type == "file") {
